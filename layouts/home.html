@@ -1,0 +1,66 @@
+{{ define "main" }}
+<article class="invitation">
+  <section class="event">
+    <div class="title-block">
+      <div class="presenter">
+        <a class="brand" href="https://analoguegroup.org/" aria-label="Analogue home">
+          <img src="/brand/logos/analogue-mark.svg" alt="" />
+          <img src="/brand/logos/analogue-wordmark.svg" alt="Analogue" />
+        </a>
+      </div>
+      <h1>Music and<br />Social Order</h1>
+      <p class="speaker">A talk by Ulkar Aghayeva</p>
+    </div>
+
+    <div class="description">
+      <p>In an intimate salon in New York City, she will be giving a talk on <a href="https://ulkaraghayeva.substack.com/p/music-as-a-power-maintaining-and?r=7e9vn&amp;utm_medium=ios">Music and Social Order</a> – looking into how music can foster harmony and cohesion while also fueling political upheaval. By drawing on ancient Greek and Chinese history through to modernity, Ulkar considers how, in music, the personal is political.</p>
+      <p>We will also be joined by a Renaissance lutenist and a baritone for a living-room performance before engaging in a salon style discussion.</p>
+    </div>
+
+    <div class="facts">
+      <p><time datetime="2026-10-17">17 October</time></p>
+      <p><time datetime="2026-10-17T18:00:00-04:00">6pm</time></p>
+      <p>New York City · Location to come</p>
+    </div>
+
+    <div class="registration-invitation">
+      <p class="join">We would be delighted to have you join us.</p>
+      <button class="register-button" type="button" id="open-registration" aria-haspopup="dialog">Register <span aria-hidden="true">↗</span></button>
+    </div>
+  </section>
+
+  <aside class="profile">
+    <figure>
+      <img src="/ulkar.webp" alt="Ulkar Aghayeva standing among leafy plants" />
+      <figcaption>Ulkar Aghayeva · Writer and composer</figcaption>
+    </figure>
+    <p class="bio">Born and raised in Baku, Ulkar trained in biochemistry and conducted doctoral research in developmental neuroscience at Columbia University. She currently works as a science writer with articles appearing in <a href="https://press.asimov.com/articles/insect-diapause">Asimov Press</a>, <a href="https://worksinprogress.co/issue/waking-up-sciences-sleeping-beauties/">Works in Progress</a>, and her science history blog, <a href="https://measureformeasure.co/">Measure for Measure</a>. Ulkar is interested in ideas surrounding scientific creativity, <a href="https://press.asimov.com/articles/beautiful-experiments">experimental beauty</a>, method and the <a href="https://press.asimov.com/articles/theory-biology">role of theory</a> in science. Outside of writing, she is a trained pianist and <a href="https://www.youtube.com/watch?v=uls7oBPaRfo">composes works</a> that explore emergent musical patterns at the boundaries between tradition and new forms.</p>
+  </aside>
+</article>
+<dialog id="registration" aria-labelledby="registration-title">
+  <button class="registration-close" type="button" aria-label="Close registration">×</button>
+  <p class="registration-eyebrow">Music and Social Order · 17 October</p>
+  <h2 id="registration-title">Join us.</h2>
+  <iframe data-tally-src="https://tally.so/embed/zxa4DE?alignLeft=1&amp;hideTitle=1&amp;formEventsForwarding=1" loading="lazy" width="100%" height="672" title="Music and Social Order registration"></iframe>
+  <p class="registration-fallback">Having trouble? <a href="https://tally.so/r/zxa4DE" target="_blank" rel="noopener">Open the registration form</a>.</p>
+</dialog>
+<script>
+  const registration = document.getElementById('registration');
+  document.getElementById('open-registration').addEventListener('click', () => {
+    registration.showModal();
+    if (window.Tally) {
+      window.Tally.loadEmbeds();
+    } else if (!document.querySelector('script[src="https://tally.so/widgets/embed.js"]')) {
+      const script = document.createElement('script');
+      script.src = 'https://tally.so/widgets/embed.js';
+      script.onload = () => window.Tally && window.Tally.loadEmbeds();
+      script.onerror = () => {
+        const frame = registration.querySelector('iframe');
+        frame.src = frame.dataset.tallySrc;
+      };
+      document.body.appendChild(script);
+    }
+  });
+  registration.querySelector('.registration-close').addEventListener('click', () => registration.close());
+</script>
+{{ end }}

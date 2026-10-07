@@ -1,0 +1,451 @@
+@font-face {
+  font-family: "Diatype";
+  src: url("/brand/fonts/diatype-light.otf") format("opentype");
+  font-display: swap;
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: "Diatype";
+  src: url("/brand/fonts/diatype-regular.otf") format("opentype");
+  font-display: swap;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Diatype";
+  src: url("/brand/fonts/diatype-bold.otf") format("opentype");
+  font-display: swap;
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "HAL Timezone";
+  src: url("/brand/fonts/hal-timezone.ttf") format("truetype");
+  font-display: swap;
+  font-weight: 500;
+}
+
+:root {
+  --black: #0f0e0e;
+  --paper: #f4ecec;
+  --muted: #cecece;
+  --rule: #cecece4d;
+  --gutter: clamp(16px, 1.7vw, 28px);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+html {
+  background: var(--black);
+  color: var(--paper);
+  font-family: "Diatype", Arial, sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  min-width: 320px;
+  margin: 0;
+  overflow: auto;
+  background-color: var(--black);
+  background-image: url("/brand/textures/noise.png");
+  background-repeat: repeat;
+  background-size: 180px 180px;
+}
+
+main {
+  display: grid;
+  grid-template-rows: minmax(0, 1fr);
+  width: min(100%, 1600px);
+  height: 100svh;
+  margin: 0 auto;
+  padding: var(--gutter);
+}
+
+p,
+h1,
+dl,
+dd,
+figure {
+  margin: 0;
+}
+
+.presenter {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.label,
+dt,
+figcaption {
+  color: var(--muted);
+  font-family: "Diatype", Arial, sans-serif;
+  font-size: clamp(0.8rem, 1vw, 0.95rem);
+  font-weight: 400;
+  letter-spacing: normal;
+  text-transform: none;
+}
+
+.brand {
+  display: grid;
+  width: 82px;
+  gap: 6px;
+}
+
+.presenter .label {
+  font-family: Georgia, "Times New Roman", serif;
+  font-style: italic;
+}
+
+.brand img:first-child {
+  width: 82px;
+}
+
+.brand img:last-child {
+  width: 58px;
+}
+
+.invitation {
+  display: grid;
+  grid-template-columns: minmax(0, 1.12fr) minmax(300px, 0.88fr);
+  min-height: 0;
+}
+
+.event {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+  padding: 16px clamp(24px, 3vw, 50px) 16px 0;
+}
+
+h1 {
+  margin-top: 0;
+  font-family: "HAL Timezone", Georgia, serif;
+  font-size: clamp(2.8rem, 4.5vw, 4.4rem);
+  font-weight: 500;
+  letter-spacing: -0.035em;
+  line-height: 0.92;
+}
+
+:is(.description, .bio) a {
+  color: inherit;
+  text-decoration-line: underline;
+  text-decoration-color: var(--rule);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.08em;
+  text-decoration-skip-ink: auto;
+  transition: color 160ms ease, text-decoration-color 160ms ease;
+}
+
+:is(.description, .bio) a:hover,
+:is(.description, .bio) a:focus-visible {
+  color: var(--muted);
+  text-decoration-color: currentColor;
+}
+
+:is(.description, .bio) a:focus-visible {
+  outline: 1px solid currentColor;
+  outline-offset: 5px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :is(.description, .bio) a {
+    transition: none;
+  }
+}
+
+.speaker {
+  margin-top: 16px;
+  color: var(--muted);
+  font-size: clamp(0.9rem, 1.1vw, 1.15rem);
+}
+
+.facts {
+  display: grid;
+  gap: 5px;
+  padding: 16px 0;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  font-size: clamp(0.82rem, 1vw, 1rem);
+  line-height: 1.2;
+}
+
+.description {
+  width: min(100%, 720px);
+  margin: 0;
+  padding: 0;
+  color: var(--muted);
+  font-size: clamp(0.9rem, 1.08vw, 1rem);
+  font-weight: 300;
+  line-height: 1.5;
+  text-align: left;
+  text-wrap: pretty;
+}
+
+.description p + p {
+  margin-top: 12px;
+}
+
+.description p:first-child {
+  color: var(--paper);
+  margin-bottom: 0;
+  font-weight: 400;
+}
+
+.join {
+  padding: 0;
+  font-family: "HAL Timezone", Georgia, serif;
+  font-size: clamp(1rem, 1.15vw, 1.15rem);
+  line-height: 1.35;
+}
+
+.registration-invitation {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.register-button {
+  padding: 10px 18px;
+  border: 1px solid var(--muted);
+  background: transparent;
+  color: var(--paper);
+  font: inherit;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.register-button:hover:not(:disabled) {
+  background: var(--paper);
+  color: var(--black);
+}
+
+.register-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+#registration {
+  box-sizing: border-box;
+  width: min(720px, calc(100% - 32px));
+  max-height: calc(100svh - 32px);
+  padding: clamp(24px, 5vw, 40px);
+  border: 1px solid var(--rule);
+  background: var(--black);
+  color: var(--paper);
+}
+
+#registration::backdrop {
+  background: rgb(0 0 0 / 75%);
+}
+
+#registration iframe {
+  display: block;
+  border: 0;
+  margin-top: 20px;
+}
+
+.registration-fallback {
+  margin-top: 16px;
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
+.registration-fallback a {
+  color: inherit;
+  text-underline-offset: 3px;
+}
+
+.registration-close {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 44px;
+  height: 44px;
+  border: 0;
+  background: transparent;
+  color: var(--paper);
+  font: inherit;
+  font-size: 1.7rem;
+  cursor: pointer;
+}
+
+.registration-eyebrow,
+#registration-note,
+#guest-link-hint,
+#registration label span {
+  color: var(--muted);
+  font-size: 0.8rem;
+  line-height: 1.5;
+}
+
+.registration-eyebrow {
+  padding-right: 24px;
+}
+
+#registration h2 {
+  margin: 16px 0 12px;
+  font: 500 2.5rem / 1.1 'HAL Timezone', Georgia, serif;
+}
+
+#registration-form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 24px;
+}
+
+#registration label {
+  font-size: 0.95rem;
+}
+
+#registration input {
+  min-width: 0;
+  margin: 6px 0 20px;
+  padding: 10px 0;
+  border: 0;
+  border-bottom: 1px solid var(--rule);
+  border-radius: 0;
+  background: transparent;
+  color: var(--paper);
+  font: inherit;
+  font-size: 16px;
+}
+
+#registration input::placeholder {
+  color: #999;
+}
+
+#registration input:focus {
+  border-bottom-color: var(--paper);
+}
+
+#guest-link-hint {
+  margin-top: -12px;
+  margin-bottom: 24px;
+}
+
+button:focus-visible,
+#registration input:focus-visible {
+  outline: 1px solid var(--paper);
+  outline-offset: 4px;
+}
+
+.profile {
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) auto;
+  min-height: 0;
+  padding: 16px 0 16px clamp(18px, 2vw, 32px);
+  border-left: 1px solid var(--rule);
+}
+
+.profile figure {
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) auto;
+  min-height: 0;
+}
+
+.profile img {
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  object-fit: cover;
+  object-position: center 38%;
+}
+
+.profile figcaption {
+  padding: 9px 0;
+}
+
+.bio {
+  padding-top: clamp(10px, 1.4vh, 16px);
+  border-top: 1px solid var(--rule);
+  color: var(--muted);
+  font-size: clamp(0.8rem, 0.94vw, 0.9rem);
+  font-weight: 300;
+  line-height: 1.45;
+}
+
+.bio em {
+  color: var(--paper);
+  font-style: normal;
+}
+
+@media (max-width: 760px) {
+  body {
+    overflow: auto;
+  }
+
+  main {
+    height: auto;
+    min-height: 100svh;
+    padding: 24px;
+  }
+
+  #registration {
+    padding: 32px 28px;
+  }
+
+  .invitation {
+    grid-template-columns: 1fr;
+  }
+
+  .event {
+    padding-right: 0;
+    padding-bottom: 0;
+  }
+
+  h1 {
+    font-size: clamp(3rem, 16vw, 5rem);
+  }
+
+  .facts {
+    margin-top: 0;
+  }
+
+  .profile {
+    margin-top: 16px;
+    padding-left: 0;
+    border-top: 1px solid var(--rule);
+    border-left: 0;
+  }
+
+  .profile img {
+    max-height: 58svh;
+  }
+}
+
+@media (max-height: 700px) and (min-width: 761px) {
+  h1 {
+    font-size: clamp(2.6rem, 4.3vw, 3.8rem);
+  }
+
+  .event,
+  .profile {
+    padding-top: 8px;
+    padding-bottom: 8px;
+  }
+
+  .event {
+    gap: 16px;
+  }
+
+  .presenter {
+    margin-bottom: 16px;
+  }
+}
