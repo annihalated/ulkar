@@ -1,10 +1,11 @@
-baseURL: "/"
+baseURL: "https://ulkar.analoguegroup.org/"
 locale: "en-US"
 title: "Music and Social Order"
 description: "An intimate salon with writer and composer Ulkar Aghayeva, in New York City on 17 October at 6pm."
 
 noBuildLock: true # disable creation of the .hugo_build.lock file.
 params:
+  description: "An intimate salon with writer and composer Ulkar Aghayeva, in New York City on 17 October at 6pm."
   author:
     name: Ulkar Aghayeva
 
